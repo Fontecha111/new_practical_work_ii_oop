@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MAUI.CalculatorPage"
+             Title="Calculator"
+             BackgroundColor="White">
+
+    <VerticalStackLayout Padding="20" Spacing="15">
+
+        <!-- Entry to show input/output -->
+        <Entry x:Name="inputEntry" FontSize="24" Placeholder="0" IsReadOnly="True" HorizontalTextAlignment="End" BackgroundColor="LightGray" TextColor="Black" />
+        <Entry x:Name="bitsEntry" FontSize="18" Placeholder="Bits" Keyboard="Numeric" BackgroundColor="LightGray" TextColor="Black" HorizontalTextAlignment="End" />
+
+<!-- Buttons Grid -->
+        <Grid ColumnSpacing="15" RowSpacing="15">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <!-- This is the first row -->
+            <Button Text="AC" TextColor="White" Grid.Row="0" Grid.Column="0" Clicked="OnClearClicked" BackgroundColor="#2196F3"/>
+            <Button Text="-" TextColor="White" Grid.Row="0" Grid.Column="1" Clicked="OnSymbolClicked" BackgroundColor="#2196F3"/>
+            <Button Text="1" TextColor="White" Grid.Row="0" Grid.Column="2" Clicked="OnSymbolClicked" BackgroundColor="#2196F3"/>
+            <Button Text="2" TextColor="White" Grid.Row="0" Grid.Column="3" Clicked="OnSymbolClicked" BackgroundColor="#2196F3"/>
+
+            <!-- This is the second row -->
+            <Button Text="3" TextColor="White" Grid.Row="1" Grid.Column="0" Clicked="OnSymbolClicked" BackgroundColor="#2196F3"/>
+            <Button Text="4" TextColor="White" Grid.Row="1" Grid.Column="1" Clicked="OnSymbolClicked" BackgroundColor="#2196F3"/>
+            <Button Text="5" TextColor="White" Grid.Row="1" Grid.Column="2" Clicked="OnSymbolClicked" BackgroundColor="#2196F3"/>
+            <Button Text="6" TextColor="White" Grid.Row="1" Grid.Column="3" Clicked="OnSymbolClicked" BackgroundColor="#2196F3"/>
+
+            <!-- This is the third row -->
+            <Button Text="7" TextColor="White" Grid.Row="2" Grid.Column="0" Clicked="OnNumberClicked" BackgroundColor="#2196F3"/>
+            <Button Text="8" TextColor="White" Grid.Row="2" Grid.Column="1" Clicked="OnNumberClicked" BackgroundColor="#2196F3"/>
+            <Button Text="9" TextColor="White" Grid.Row="2" Grid.Column="2" Clicked="OnNumberClicked" BackgroundColor="#2196F3"/>
+            <Button Text="0" TextColor="White" Grid.Row="2" Grid.Column="3" Clicked="OnNumberClicked" BackgroundColor="#2196F3"/>
+
+            <!-- This is the forth row -->
+            <Button Text="A" TextColor="White" Grid.Row="3" Grid.Column="0" Clicked="OnNumberClicked" BackgroundColor="#2196F3"/>
+            <Button Text="B" TextColor="White" Grid.Row="3" Grid.Column="1" Clicked="OnNumberClicked" BackgroundColor="#2196F3"/>
+            <Button Text="C" TextColor="White" Grid.Row="3" Grid.Column="2" Clicked="OnNumberClicked" BackgroundColor="#2196F3"/>
+            <Button Text="D" TextColor="White" Grid.Row="3" Grid.Column="3" Clicked="OnNumberClicked" BackgroundColor="#2196F3"/>
+
+            
+            <Button Text="E" TextColor="White" Grid.Row="4" Grid.Column="0" Clicked="OnNumberClicked" BackgroundColor="#2196F3"/>
+            <Button Text="F" TextColor="White" Grid.Row="4" Grid.Column="1" Clicked="OnNumberClicked" BackgroundColor="#2196F3"/>
+        </Grid>
+
+
+
+        <Label Text="Select the Conversion type" FontSize="15"  HorizontalOptions="Center" TextColor="Black"/>
+
+        <Grid ColumnSpacing="15" RowSpacing="15">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <!-- This is the first row for the Conversion buttons -->
+            <Button Text="Decimal to Binary" TextColor="White" Grid.Row="0" Grid.Column="0" BackgroundColor="#2196F3" Clicked="OnDecimalToBinaryClicked"/>
+            <Button Text="Decimal to Octal" TextColor="White" Grid.Row="0" Grid.Column="1" BackgroundColor="#2196F3" Clicked="OnDecimalToOctalClicked"/>
+            <Button Text="Decimal to Hexadecimal" TextColor="White" Grid.Row="0" Grid.Column="2" BackgroundColor="#2196F3" Clicked="OnDecimalToHexadecimalClicked"/>
+            <Button Text="Decimal to 2's Complement" TextColor="White" Grid.Row="0" Grid.Column="3" BackgroundColor="#2196F3" Clicked="OnDecimalToTwoComplementClicked"/>
+
+            <!-- This is the second row for the Conversion buttons -->
+            <Button Text="Binary to Decimal" TextColor="White" Grid.Row="1" Grid.Column="0" BackgroundColor="#2196F3" Clicked="OnBinaryToDecimalClicked"/>
+            <Button Text="Octal to Decimal" TextColor="White" Grid.Row="1" Grid.Column="1" BackgroundColor="#2196F3" Clicked="OnOctalToDecimalClicked"/>
+            <Button Text="Hexadecimal to Decimal" TextColor="White" Grid.Row="1" Grid.Column="2" BackgroundColor="#2196F3" Clicked="OnHexadecimalToDecimalClicked"/>
+            <Button Text="2's Complement to Decimal" TextColor="White" Grid.Row="1" Grid.Column="3" BackgroundColor="#2196F3" Clicked="OnTwoComplementToDecimalClicked"/>
+
+            
+        </Grid>
+
+        <Label x:Name="resultLabel" FontSize="18" HorizontalOptions="Center" TextColor="Black" />
+
+
+        <Button Text="Operations" TextColor="White" BackgroundColor="#2196F3" Clicked="OnShowUserInfoClicked"/>
+    </VerticalStackLayout>
+</ContentPage>
