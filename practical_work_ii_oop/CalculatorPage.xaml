@@ -5,7 +5,8 @@
              Title="Calculator"
              BackgroundColor="White">
 
-    <VerticalStackLayout Padding="20" Spacing="15">
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="15">
 
         <!-- Entry to show input/output -->
         <Entry x:Name="inputEntry" FontSize="24" Placeholder="0" IsReadOnly="True" HorizontalTextAlignment="End" BackgroundColor="LightGray" TextColor="Black" />
@@ -97,4 +98,6 @@
 
         <Button Text="Operations" TextColor="White" BackgroundColor="#2196F3" Clicked="OnShowUserInfoClicked"/>
     </VerticalStackLayout>
+    </ScrollView>
+
 </ContentPage>

@@ -1,4 +1,4 @@
-namespace oppguidedpw
+namespace MAUI
 {
     public interface Operations
     {
