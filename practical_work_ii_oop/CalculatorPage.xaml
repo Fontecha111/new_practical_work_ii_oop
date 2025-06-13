@@ -9,7 +9,9 @@
         <VerticalStackLayout Padding="20" Spacing="15">
 
         <!-- Entry to show input/output -->
-        <Entry x:Name="inputEntry" FontSize="24" Placeholder="0" IsReadOnly="True" HorizontalTextAlignment="End" BackgroundColor="LightGray" TextColor="Black" />
+        <Entry x:Name="inputEntry" FontSize="24" Placeholder="0" HorizontalTextAlignment="End" BackgroundColor="LightGray" TextColor="Black" />
+
+        <Label Text="Number of bits to use" FontSize="14" TextColor="Black" HorizontalOptions="Center" />
         <Entry x:Name="bitsEntry" FontSize="18" Placeholder="Bits" Keyboard="Numeric" BackgroundColor="LightGray" TextColor="Black" HorizontalTextAlignment="End" />
 
 <!-- Buttons Grid -->
@@ -99,5 +101,6 @@
         <Button Text="Operations" TextColor="White" BackgroundColor="#2196F3" Clicked="OnShowUserInfoClicked"/>
     </VerticalStackLayout>
     </ScrollView>
+
 
 </ContentPage>

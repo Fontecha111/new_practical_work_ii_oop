@@ -6,13 +6,14 @@ namespace MAUI
         private string name;
         private string username;
         private string password;
-        private int operationCount = 0;
+        private int operationCount;
 
         public User(string name, string username, string password)
         {
             this.name = name;
             this.username = username;
             this.password = password;
+            this.operationCount = 0;
         }
 
         public void setName(string name)
