@@ -62,9 +62,30 @@ public partial class CalculatorPage : ContentPage
     private async void OnDecimalToTwoComplementClicked(object sender, EventArgs e)
     {
         string input = inputEntry.Text;
-        string result = converter.PerformConversion(4, input);
-        inputEntry.Text = $"Two Complement: {result}";
-        currentUser.IncrementOperation();
+        string bitsText = bitsEntry.Text;
+
+        int bits;
+        if (string.IsNullOrWhiteSpace(bitsText) || !int.TryParse(bitsText, out bits) || bits <= 0)
+        {
+            await DisplayAlert("Stop", "Enter a valid bit size", "OK");
+            inputEntry.Text = "";
+            return;
+        }
+
+        string result = "";
+
+        try
+        {
+            result = converter.PerformConversion(4, input, bits);
+            inputEntry.Text = result;
+            currentUser.IncrementOperation();
+        }
+        catch
+        {
+            await DisplayAlert("Error", "This is an invalid input for this conversion", "OK");
+            inputEntry.Text = "";
+        }
+        
     }
 
     private async void OnBinaryToDecimalClicked(object sender, EventArgs e)

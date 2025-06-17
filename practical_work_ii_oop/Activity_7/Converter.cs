@@ -53,14 +53,14 @@ namespace oppguidedpw
             return (option < 1 || option > this.GetNumberOperations()) ? this.Exit(): option;
         }
 
-        public string PerformConversion(int op, string input)
+        public string PerformConversion(int op, string input, int bits = 0)
         {
             this.operations[op-1].Validate(input);
 
             if (this.operations[op-1].NeedBitSize())
             {
                 Console.WriteLine("How many bits should I use: ");
-                int bits = Int32.Parse(Console.ReadLine());
+                bits = Int32.Parse(Console.ReadLine());
                 
                 return this.operations[op-1].Change(input, bits);
             }
