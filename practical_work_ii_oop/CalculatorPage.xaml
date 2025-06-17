@@ -12,7 +12,7 @@
         <Entry x:Name="inputEntry" FontSize="24" Placeholder="0" HorizontalTextAlignment="End" BackgroundColor="LightGray" TextColor="Black" />
 
         <Label Text="Number of bits to use" FontSize="14" TextColor="Black" HorizontalOptions="Center" />
-        <Entry x:Name="bitsEntry" FontSize="18" Placeholder="Bits" Keyboard="Numeric" BackgroundColor="LightGray" TextColor="Black" HorizontalTextAlignment="End" />
+        <Entry x:Name="bitsEntry" FontSize="24" Placeholder="Bits" Keyboard="Numeric" BackgroundColor="LightGray" TextColor="Black" HorizontalTextAlignment="End" />
 
 <!-- Buttons Grid -->
         <Grid ColumnSpacing="15" RowSpacing="15">
