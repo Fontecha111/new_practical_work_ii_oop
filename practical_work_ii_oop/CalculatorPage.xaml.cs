@@ -121,7 +121,7 @@ public partial class CalculatorPage : ContentPage
     private async void OnOctalToDecimalClicked(object sender, EventArgs e)
     {
         string input = inputEntry.Text;
-        string result = converter.PerformConversion(6, input);
+        string result = converter.PerformConversion(7, input);
         inputEntry.Text = $"Decimal: {result}";
         currentUser.IncrementOperation();
     }
@@ -129,7 +129,7 @@ public partial class CalculatorPage : ContentPage
     private async void OnHexadecimalToDecimalClicked(object sender, EventArgs e)
     {
         string input = inputEntry.Text;
-        string result = converter.PerformConversion(7, input);
+        string result = converter.PerformConversion(8, input);
         inputEntry.Text = $"Decimal: {result}";
         currentUser.IncrementOperation();
     }
