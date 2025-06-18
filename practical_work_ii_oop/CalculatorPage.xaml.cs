@@ -66,7 +66,7 @@ public partial class CalculatorPage : ContentPage
         string bitsText = bitsEntry.Text;
 
         int bits;
-        if (string.IsNullOrWhiteSpace(bitsText) || !int.TryParse(bitsText, out bits) || bits <= 0)
+        if (!int.TryParse(bitsText, out bits) || bits <= 0)
         {
             await DisplayAlert("Stop", "Enter a valid bit size", "OK");
             inputEntry.Text = "";
@@ -86,14 +86,19 @@ public partial class CalculatorPage : ContentPage
                 return;
             }
 
-            string result = converter.PerformConversion(4, input);
+            string result;
 
-            if (result.Length > bits)
+            if (number < 0)
             {
-                result = result.Substring(result.Length - bits);
+                int value = (1 << bits) + number;
+                result = Convert.ToString(value, 2).PadLeft(bits, '0');
             }
-            
-            inputEntry.Text = result;
+            else
+            {
+                result = Convert.ToString(number, 2).PadLeft(bits, '0');
+            }
+
+            inputEntry.Text = $"Two Complement: {result}";
             currentUser.IncrementOperation();
         }
 
@@ -157,7 +162,6 @@ public partial class CalculatorPage : ContentPage
 
         try
         {
-            
             int value = Convert.ToInt32(input, 2);
             if (input[0] == '1')
                 value -= (1 << bits); 
