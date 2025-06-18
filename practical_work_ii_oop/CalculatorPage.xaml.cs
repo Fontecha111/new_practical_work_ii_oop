@@ -115,9 +115,30 @@ public partial class CalculatorPage : ContentPage
     private async void OnTwoComplementToDecimalClicked(object sender, EventArgs e)
     {
         string input = inputEntry.Text;
-        string result = converter.PerformConversion(8, input);
-        inputEntry.Text = $"Decimal: {result}";
-        currentUser.IncrementOperation();
+        string bitsText = bitsEntry.Text;
+
+        int bits;
+        if (string.IsNullOrWhiteSpace(bitsText) || !int.TryParse(bitsText, out bits) || bits <= 0)
+        {
+            await DisplayAlert("Stop", "Enter a valid bit size", "OK");
+            inputEntry.Text = "";
+            return;
+        }
+
+        string result = "";
+
+        try
+        {
+            result = converter.PerformConversion(8, input, bits);
+            inputEntry.Text = result;
+            currentUser.IncrementOperation();
+        }
+
+        catch
+        {
+            await DisplayAlert("Erro in the conversion", "Invalid input", "OK");
+            inputEntry.Text = "";
+        }
     }
 
     private async void OnShowUserInfoClicked(object sender, EventArgs e)
