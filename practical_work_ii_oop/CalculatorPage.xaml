@@ -55,7 +55,7 @@
             <Button Text="C" TextColor="White" Grid.Row="3" Grid.Column="2" Clicked="OnNumberClicked" BackgroundColor="#2196F3"/>
             <Button Text="D" TextColor="White" Grid.Row="3" Grid.Column="3" Clicked="OnNumberClicked" BackgroundColor="#2196F3"/>
 
-            
+            <!-- This is the fifth row -->
             <Button Text="E" TextColor="White" Grid.Row="4" Grid.Column="0" Clicked="OnNumberClicked" BackgroundColor="#2196F3"/>
             <Button Text="F" TextColor="White" Grid.Row="4" Grid.Column="1" Clicked="OnNumberClicked" BackgroundColor="#2196F3"/>
         </Grid>

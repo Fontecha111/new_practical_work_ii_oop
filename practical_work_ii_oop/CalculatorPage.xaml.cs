@@ -33,6 +33,7 @@ public partial class CalculatorPage : ContentPage
     private void OnClearClicked(object sender, EventArgs e)
     {
         inputEntry.Text = string.Empty;
+        bitsEntry.Text = string.Empty;
     }
 
     private async void OnDecimalToBinaryClicked(object sender, EventArgs e)
@@ -72,14 +73,30 @@ public partial class CalculatorPage : ContentPage
             return;
         }
 
-        string result = "";
-
         try
         {
-            result = converter.PerformConversion(4, input, bits);
+            int number = int.Parse(input);
+            int minValue = -(1 << (bits - 1));
+            int maxValue = (1 << (bits - 1)) - 1;
+
+            if (number < minValue || number > maxValue)
+            {
+                await DisplayAlert("Error", $"The number must be between {minValue} and {maxValue}", "OK");
+                inputEntry.Text = "";
+                return;
+            }
+
+            string result = converter.PerformConversion(4, input);
+
+            if (result.Length > bits)
+            {
+                result = result.Substring(result.Length - bits);
+            }
+            
             inputEntry.Text = result;
             currentUser.IncrementOperation();
         }
+
         catch
         {
             await DisplayAlert("Error", "This is an invalid input for this conversion", "OK");
@@ -114,29 +131,43 @@ public partial class CalculatorPage : ContentPage
 
     private async void OnTwoComplementToDecimalClicked(object sender, EventArgs e)
     {
-        string input = inputEntry.Text;
-        string bitsText = bitsEntry.Text;
-
-        int bits;
-        if (string.IsNullOrWhiteSpace(bitsText) || !int.TryParse(bitsText, out bits) || bits <= 0)
+        string input = inputEntry.Text.Trim();
+        if (!int.TryParse(bitsEntry.Text, out int bits) || bits <= 0)
         {
-            await DisplayAlert("Stop", "Enter a valid bit size", "OK");
-            inputEntry.Text = "";
+            await DisplayAlert("Error", "Invalid bit size.", "OK");
             return;
         }
 
-        string result = "";
+        if (input.Length > bits)
+        {
+            input = input.Substring(input.Length - bits);  
+        }
+
+        else if (input.Length < bits)
+        {
+            await DisplayAlert("Error", $"Input must be exactly {bits} bits.", "OK");
+            return;
+        }
+
+        if (!input.All(c => c == '0' || c == '1'))
+        {
+            await DisplayAlert("Error", "Input must be a binary number.", "OK");
+            return;
+        }
 
         try
         {
-            result = converter.PerformConversion(8, input, bits);
-            inputEntry.Text = result;
+            
+            int value = Convert.ToInt32(input, 2);
+            if (input[0] == '1')
+                value -= (1 << bits); 
+
+            inputEntry.Text = $"Decimal: {value}";
             currentUser.IncrementOperation();
         }
-
         catch
         {
-            await DisplayAlert("Erro in the conversion", "Invalid input", "OK");
+            await DisplayAlert("Error", "Invalid conversion.", "OK");
             inputEntry.Text = "";
         }
     }
