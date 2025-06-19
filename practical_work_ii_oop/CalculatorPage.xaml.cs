@@ -7,9 +7,11 @@ public partial class CalculatorPage : ContentPage
 
     private User currentUser = new User("", "", "");
     private Converter converter = new Converter();
-    public CalculatorPage()
+    public CalculatorPage(User user)
     {
         InitializeComponent();
+        currentUser = user;
+        
     }
 
     

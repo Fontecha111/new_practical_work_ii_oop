@@ -1,7 +1,7 @@
 ﻿using System;
 using System.IO;
 using Microsoft.Maui.Storage;
-
+using oppguidedpw;
 namespace MAUI;
 
 public partial class MainPage : ContentPage
@@ -38,12 +38,15 @@ public partial class MainPage : ContentPage
 
 			if (parts.Length < 5) continue;
 
-			string csvUsername = parts[1];
-			string csvPassword = parts[3];
+
+			string csvName = parts[0].Trim();
+			string csvUsername = parts[1].Trim();
+			string csvPassword = parts[3].Trim();
 
 			if (csvUsername == username && csvPassword == password)
 			{
-				await Navigation.PushAsync(new CalculatorPage());
+				var user = new User(csvName, csvUsername, csvPassword);
+				await Navigation.PushAsync(new CalculatorPage(user));
 				return;
 			}
 		}
@@ -63,7 +66,8 @@ public partial class MainPage : ContentPage
 
 	private async void OnGoToCalculator(object sender, EventArgs e)
 	{
-		await Navigation.PushAsync(new CalculatorPage());
+		var user = new User("", "", "");
+		await Navigation.PushAsync(new CalculatorPage(user));
 	}
 
 	
