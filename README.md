@@ -33,12 +33,12 @@ For the development decisions, as well, I used mainly the base I had for the pre
 |       Shell        | 
 +--------------------+
 
-+---------------------+
-|    CalculatorPage   |
-+---------------------+
-| - currentUser: User |
-| - converter: Converter |
-+---------------------+
++------------------------------------+
+|    CalculatorPage                  |
++------------------------------------+
+| - currentUser: User                |
+| - converter: Converter             |
++------------------------------------+
 | +OnDecimalToBinaryClicked()        |
 | +OnDecimalToOctalClicked()         |
 | +OnDecimalToHexadecimalClicked()   |
@@ -48,40 +48,40 @@ For the development decisions, as well, I used mainly the base I had for the pre
 | +OnHexadecimalToDecimalClicked()   |
 | +OnTwoComplementToDecimalClicked() |
 | +OnShowUserInfoClicked()           |
-+---------------------+
++------------------------------------+
 
-+------------------------+
-|     ForgotPasswordPage|
-+------------------------+
++--------------------------+
+|     ForgotPasswordPage   |
++--------------------------+
 | +OnSendRecoveryClicked() |
 | +OnBackToLoginClicked()  |
-+------------------------+
++--------------------------+
 
-+---------------------+
-|     MainPage        |
-+---------------------+
-| +OnSignInClicked()     |
++---------------------------+
+|     MainPage              |
++---------------------------+
+| +OnSignInClicked()        |
 | +OnForgotPasswordTapped() |
 | +OnGoToRegisterClicked()  |
 | +OnGoToCalculator()       |
-+---------------------+
++---------------------------+
 
-+---------------------+
-|    RegisterPage     |
-+---------------------+
++-------------------------+
+|    RegisterPage         |
++-------------------------+
 | +OnRegisterClicked()    |
 | +IsValidPassword():bool |
 | +OnGoToLoginTapped()    |
-+---------------------+
++-------------------------+
 
-+----------------------+
-|     User             |
-+----------------------+
++--------------------------+
+|     User                 |
++--------------------------+
 | - name: string           |
 | - username: string       |
 | - password: string       |
 | - operationCount: int    |
-+----------------------+
++--------------------------+
 | +setName(string)         |
 | +setUsername(string)     |
 | +setPassword(string)     |
@@ -91,26 +91,26 @@ For the development decisions, as well, I used mainly the base I had for the pre
 | +DisplayUserInfo()       |
 | +IncrementOperation()    |
 | +getOperationCount():int |
-+----------------------+
++--------------------------+
 
-+--------------------+
++-------------------------+
 |   Interface: Operations |
-+--------------------+
-| +setName()            |
-| +setUsername()        |
-| +setPassword()        |
-| +getName()            |
-| +getUsername()        |
-| +getPassword()        |
-| +DisplayUserInfo()    |
-| +IncrementOperation() |
-+--------------------+
++-------------------------+
+| +setName()              |
+| +setUsername()          |
+| +setPassword()          |
+| +getName()              |
+| +getUsername()          |
+| +getPassword()          |
+| +DisplayUserInfo()      |
+| +IncrementOperation()   |
++-------------------------+
 
-+---------------------+
-|     Converter       |
-+---------------------+
++----------------------------------------------------+
+|     Converter                                      |
++----------------------------------------------------+
 | +PerformConversion(type:int, input:string): string |
-+---------------------+
++----------------------------------------------------+
 
 
 # Problems
