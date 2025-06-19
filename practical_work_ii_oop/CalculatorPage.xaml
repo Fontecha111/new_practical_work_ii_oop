@@ -98,7 +98,7 @@
         <Label x:Name="resultLabel" FontSize="18" HorizontalOptions="Center" TextColor="Black" />
 
 
-        <Button Text="Operations" TextColor="White" BackgroundColor="#2196F3" Clicked="OnShowUserInfoClicked"/>
+        <Button Text="User Info" TextColor="White" BackgroundColor="#2196F3" Clicked="OnShowUserInfoClicked"/>
     </VerticalStackLayout>
     </ScrollView>
 
